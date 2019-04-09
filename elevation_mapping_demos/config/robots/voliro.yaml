@@ -1,7 +1,7 @@
-point_cloud_topic: "/voliro/os1_points"
+point_cloud_topic: "/voliro/vi_sensor/camera_depth/depth/points"#/voliro/os1_points
 map_frame_id: "world"
 robot_base_frame_id: "voliro/base_link"
-sensor_frame_id: "voliro/os1_top"
+sensor_frame_id: "voliro/vi_sensor/camera_depth_optical_center_link"#voliro/os1_top
 robot_pose_with_covariance_topic: "/voliro/ground_truth/pose_with_covariance"
 robot_pose_cache_size: 200
 track_point_frame_id: "voliro/base_link"

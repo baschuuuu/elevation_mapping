@@ -53,7 +53,7 @@ ElevationMapping::ElevationMapping(ros::NodeHandle& nodeHandle)
     : nodeHandle_(nodeHandle),
       map_(nodeHandle),
       robotMotionMapUpdater_(nodeHandle),
-      isContinouslyFusing_(false),
+      isContinouslyFusing_(true),//false
       ignoreRobotMotionUpdates_(false),
       receivedFirstMatchingPointcloudAndPose_(false)
 {
@@ -246,7 +246,7 @@ void ElevationMapping::pointCloudCallback(
     if(currentPointCloudTime < oldestPoseTime) {
       ROS_WARN_THROTTLE(5, "No corresponding point cloud and pose are found. Waiting for first match.");
       return;
-    } else {
+    } else {pointCloudCallback
       ROS_INFO("First corresponding point cloud and pose found, initialized. ");
       receivedFirstMatchingPointcloudAndPose_ = true;
     }
@@ -317,7 +317,9 @@ void ElevationMapping::pointCloudCallback(
     map_.fuseAll();
     map_.publishFusedElevationMap();
   }
-
+  //TODO seb: publish elevation pcl layer as well so our normal estimator can directly subscribe to it:
+  // elevation_map_raw elevationMapRawPublisher_ publishes elevation_map_raw 
+  // with publishRawElevationMap()
   resetMapUpdateTimer();
 }
 
