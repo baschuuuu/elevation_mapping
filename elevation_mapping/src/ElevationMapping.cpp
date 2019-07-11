@@ -246,7 +246,7 @@ void ElevationMapping::pointCloudCallback(
     if(currentPointCloudTime < oldestPoseTime) {
       ROS_WARN_THROTTLE(5, "No corresponding point cloud and pose are found. Waiting for first match.");
       return;
-    } else {pointCloudCallback
+    } else {
       ROS_INFO("First corresponding point cloud and pose found, initialized. ");
       receivedFirstMatchingPointcloudAndPose_ = true;
     }
@@ -265,7 +265,7 @@ void ElevationMapping::pointCloudCallback(
   pcl::fromPCLPointCloud2(pcl_pc, *pointCloud);
   lastPointCloudUpdateTime_.fromNSec(1000 * pointCloud->header.stamp);
 
-  ROS_INFO("ElevationMap received a point cloud (%i points) for elevation mapping.", static_cast<int>(pointCloud->size()));
+  //ROS_INFO("ElevationMap received a point cloud (%i points) for elevation mapping.", static_cast<int>(pointCloud->size()));
 
   // Update map location.
   updateMapLocation();
