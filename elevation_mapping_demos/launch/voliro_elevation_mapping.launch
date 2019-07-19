@@ -7,7 +7,7 @@
     <param name="relocate_rate" value="20"/>
     <rosparam command="load" file="$(find elevation_mapping_demos)/config/robots/voliro.yaml" />
     <rosparam command="load" file="$(find elevation_mapping_demos)/config/elevation_maps/simple_demo_map.yaml" />
-    <rosparam command="load" file="$(find elevation_mapping)/config/sensor_processors/hokuyo_utm-30lx.yaml" />
+    <rosparam command="load" file="$(find elevation_mapping)/config/sensor_processors/aslam.yaml" />
   </node>
 
   <!-- Launch visualizations for the resulting elevation map -->
